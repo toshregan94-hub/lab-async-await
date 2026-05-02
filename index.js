@@ -1,27 +1,27 @@
 // Write your code here!
 
 function displayPosts(posts) {
-    // Select the <ul> from your HTML
+    // Select the <ul> from HTML
     const postList = document.getElementById('post-list');
 
     // Loop through the posts list
     posts.forEach(post => {
-    // 1. Create a li tag
+    // 1. Creating a li tag
      const li = document.createElement('li');
 
-    // Create a new h1 tag and add the title
+    // Creating a new h1 tag and adding the title
  const h1 = document.createElement('h1');
         h1.textContent = post.title;
 
-     // Create a new p tag and add the body text
+     // Creating a new p tag and adding the body text
   const p = document.createElement('p');
         p.textContent = post.body;
 
-     // Append h1 and p to the li
+     // Appending h1 and p to the li
  li.appendChild(h1);
  li.appendChild(p);
 
-        // Append the li to the ul
+        // Appending the li to the ul
         postList.appendChild(li);
     });
 }
@@ -34,7 +34,7 @@ async function fetchPosts() {
 // Use await for the fetch request
  const response = await fetch(url);
 
-// Basic check to see if the response is successful
+// Checking if the response is successful
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
@@ -42,11 +42,11 @@ async function fetchPosts() {
 // Use await to parse the JSON
 const data = await response.json();
 
-// Call the display function with our fetched data
+// Call the display function with the fetched data.
         displayPosts(data);
 
     } catch (error) {
-// Error handling for developer tools / console
+// Error handling by showing a display message.
         console.error("Oh no! Could not fetch posts:", error.message);
     }
 }
